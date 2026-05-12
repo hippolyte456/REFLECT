@@ -1,3 +1,11 @@
+from pathlib import Path
+import sys
+
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+for p in [PROJECT_ROOT, PROJECT_ROOT / "taming-transformers"]:
+    if p.exists() and str(p) not in sys.path:
+        sys.path.insert(0, str(p))
+
 import torch
 from huggingface_hub import hf_hub_download
 
